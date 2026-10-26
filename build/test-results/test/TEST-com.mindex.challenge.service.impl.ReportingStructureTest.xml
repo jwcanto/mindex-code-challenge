@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.mindex.challenge.service.impl.ReportingStructureTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-10-26T19:25:02" hostname="JCANTO_DELL_XPS" time="0.205">
+  <properties/>
+  <testcase name="reportsZeroForEmployeeWithoutDirectReports" classname="com.mindex.challenge.service.impl.ReportingStructureTest" time="0.203"/>
+  <testcase name="countsDistinctDescendantsWithoutCountingEmployeeOrCycles" classname="com.mindex.challenge.service.impl.ReportingStructureTest" time="0.001"/>
+  <system-out><![CDATA[2026-10-26T15:25:02.887-04:00 DEBUG 21232 --- [    Test worker] c.m.c.service.impl.EmployeeServiceImpl   : Creating employee with id [solo]
+2026-10-26T15:25:02.890-04:00 DEBUG 21232 --- [    Test worker] c.m.c.service.impl.EmployeeServiceImpl   : Creating employee with id [root]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

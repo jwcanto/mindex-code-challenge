@@ -12,16 +12,29 @@ import org.springframework.lang.NonNull;
 
 import java.net.InetSocketAddress;
 
+/**
+ * Configures the in-memory MongoDB server and Spring Data repository scanning.
+ */
 @EnableMongoRepositories(basePackageClasses = EmployeeRepository.class)
 @Configuration
 public class MongoConfig extends AbstractMongoClientConfiguration {
 
+    /**
+     * Returns the database name used by the application.
+     *
+     * @return configured in-memory database name
+     */
     @Override
     @NonNull
     protected String getDatabaseName() {
         return "test";
     }
 
+    /**
+     * Starts an in-memory MongoDB server and creates its client.
+     *
+     * @return MongoDB client connected to the in-memory server
+     */
     @Override
     @NonNull
     public MongoClient mongoClient() {
@@ -31,5 +44,3 @@ public class MongoConfig extends AbstractMongoClientConfiguration {
         return MongoClients.create(mongoConnectionString);
     }
 }
-
-

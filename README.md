@@ -28,7 +28,38 @@ The following endpoints are available to use:
     * URL: localhost:8080/employee/{id}
     * PAYLOAD: Employee
     * RESPONSE: Employee
+* REPORTING STRUCTURE
+    * HTTP Method: GET
+    * URL: localhost:8080/reportingStructure/{id}
+    * RESPONSE: ReportingStructure
+* CREATE COMPENSATION
+    * HTTP Method: POST
+    * URL: localhost:8080/employee/{employeeId}/compensation
+    * PAYLOAD: Compensation
+    * RESPONSE: Compensation
+* READ COMPENSATION HISTORY
+    * HTTP Method: GET
+    * URL: localhost:8080/employee/{employeeId}/compensation
+    * RESPONSE: Compensation[]
 ```
+
+The `ReportingStructure` response contains the requested `employee` and a computed
+`numberOfReports` count of all distinct direct and indirect reports. The count is
+computed when requested and is not persisted.
+
+Compensation records are stored separately and associated with an employee by
+`employeeId`. The create endpoint requires `salary` and `effectiveDate`; salary is
+normalized to two decimal places (values requiring rounding are rejected), and
+dates use the `YYYY/MM/DD` format. The read endpoint returns the employee's
+compensation history ordered by effective date, newest first.
+
+At startup, the in-memory database is seeded from
+`static/employee_database.json` and `static/compensation_database.json`.
+The compensation fixture contains two synthetic salary records for each sample
+employee, with salary levels based on position and seniority and a 4% increase
+between the 2023 and 2024 effective dates. The fixture files persist the sample
+values in source control; the in-memory database itself is reset when the
+application restarts.
 
 The Employee has a JSON schema of:
 ```json
